@@ -37,6 +37,13 @@ class PostsController extends Controller
             $posts = Post::with('user', 'postComments')
             ->where('user_id', Auth::id())->get();
         }
+        else if($request->sub_category_id){
+            $subCategoryId = $request->sub_category_id;
+            $posts = Post::with('user', 'postComments')->whereHas('subCategories', function ($query) use ($subCategoryId){
+                $query->where('sub_categories.id', $subCategoryId);
+            })
+            ->get();
+        }
         return view('authenticated.bulletinboard.posts', compact('posts', 'categories', 'like', 'post_comment'));
     }
 
@@ -56,6 +63,11 @@ class PostsController extends Controller
             'post_title' => $request->post_title,
             'post' => $request->post_body
         ]);
+
+        $subCategoryId = $request->input('post_category_id');
+
+        $post->subCategories()->attach($subCategoryId);
+
         return redirect()->route('post.show');
     }
 
@@ -102,6 +114,17 @@ class PostsController extends Controller
         $like = new Like;
         return view('authenticated.bulletinboard.post_like', compact('posts', 'like'));
     }
+
+    // public function subCategoryBulletinBoard($sub_category_id){
+    //     $subCategoryId = $request->input('sub_category_id');
+
+    //     $posts = Post::whereHas('subCategories', function ($query) use ($subCategoryId) {
+    //         $query->where('sub_categories.id', $subCategoryId);
+    //     })->get();
+    //     $like = new Like;
+
+    //     return view('authenticated.bulletinboard.post_sub_category', compact('posts', 'like'));
+    // }
 
     public function postLike(Request $request){
         $user_id = Auth::id();

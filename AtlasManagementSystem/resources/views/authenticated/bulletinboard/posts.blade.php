@@ -10,6 +10,9 @@
       <p><a href="{{ route('post.detail', ['id' => $post->id]) }}">{{ $post->post_title }}</a></p>
       <div class="post_bottom_area d-flex">
         <div class="d-flex post_status">
+          @foreach($post->subCategories as $subCategory)
+          <span class="category_btn">{{ $subCategory->sub_category }}</span>
+          @endforeach
           <div class="mr-5">
             <i class="fa fa-comment"></i><span class="">{{ $post->commentCounts($post->id)->count() }}</span>
           </div>
@@ -37,6 +40,15 @@
       <ul>
         @foreach($categories as $category)
         <li class="main_categories" category_id="{{ $category->id }}"><span>{{ $category->main_category }}<span></li>
+          @foreach($category->subCategories as $sub_category)
+          <li>
+            <form action="{{ route('post.show', ['sub_category_id' => $sub_category->id]) }}" method="get" id="postSearchRequest_{{ $sub_category->id }}">
+              {{ csrf_field() }}
+              <input type="hidden" name="sub_category_id" value="{{ $sub_category->id }}">
+              <input type="submit" name="sub_category_posts" class="category_btn" value="{{ $sub_category->sub_category }}">
+            </form>
+          </li>
+          @endforeach
         @endforeach
       </ul>
     </div>
