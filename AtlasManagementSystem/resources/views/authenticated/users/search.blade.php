@@ -91,6 +91,9 @@
           </div>
           <div class="selected_engineer">
             <label>選択科目</label>
+            <li>国語<input type="radio" name="subject" value="1" form="userSearchRequest"></li>
+            <li>数学<input type="radio" name="subject" value="2" form="userSearchRequest"></li>
+            <li>英語<input type="radio" name="subject" value="3" form="userSearchRequest"></li>
           </div>
         </div>
       </div>
