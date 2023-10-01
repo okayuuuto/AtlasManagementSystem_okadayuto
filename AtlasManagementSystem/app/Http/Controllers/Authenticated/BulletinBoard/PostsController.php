@@ -36,13 +36,11 @@ class PostsController extends Controller
         }else if($request->my_posts){
             $posts = Post::with('user', 'postComments')
             ->where('user_id', Auth::id())->get();
-        }
-        else if($request->sub_category_id){
+        }else if($request->sub_category_id){
             $subCategoryId = $request->sub_category_id;
             $posts = Post::with('user', 'postComments')->whereHas('subCategories', function ($query) use ($subCategoryId){
-                $query->where('sub_categories.id', $subCategoryId);
-            })
-            ->get();
+            $query->where('sub_categories.id', $subCategoryId);
+            })->get();
         }
         return view('authenticated.bulletinboard.posts', compact('posts', 'categories', 'like', 'post_comment'));
     }
