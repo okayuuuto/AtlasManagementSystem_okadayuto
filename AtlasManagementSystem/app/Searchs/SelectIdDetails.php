@@ -28,8 +28,16 @@ class SelectIdDetails implements DisplayUsers{
       $q->whereIn('sex', $gender)
       ->whereIn('role', $role);
     })
-    ->whereHas('subjects', function($q) use ($subjects){
-      $q->where('subjects.id', $subjects);
+    //↓元々のコード
+    // ->whereHas('subjects', function($q) use ($subjects){
+    //   $q->where('subjects.id', $subjects);
+    // })
+    ->where(function($q) use ($subjects){
+      foreach ($subjects as $subject) {
+        $q->orWhereHas('subjects', function($q) use ($subject) {
+          $q->where('subjects.id', $subject);
+        });
+      }
     })
     ->orderBy('id', $updown)->get();
     return $users;
