@@ -28,10 +28,6 @@ class SelectNameDetails implements DisplayUsers{
       $q->whereIn('sex', $gender)
       ->whereIn('role', $role);
     })
-    //↓元々の記述
-    // ->whereHas('subjects', function($q) use ($subjects){
-    //   $q->where('subjects.id', $subjects);
-    // })
     ->where(function($q) use ($subjects){
         foreach ($subjects as $subject){
           $q->orWhereHas('subjects', function($q) use ($subject) {
