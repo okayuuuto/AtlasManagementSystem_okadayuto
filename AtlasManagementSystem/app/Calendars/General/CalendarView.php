@@ -41,7 +41,6 @@ class CalendarView{
         $toDay = $this->carbon->copy()->format("Y-m-d");
 
         if($startDay <= $day->everyDay() && $toDay >= $day->everyDay()){
-          // $html[] = '<td class="calendar-td">';
           $html[] = '<td class="past-day border">';
         }else{
           $html[] = '<td class="calendar-td '.$day->getClassName().'">';
@@ -64,7 +63,7 @@ class CalendarView{
             $html[] = '<input type="hidden" name="getPart[]" value="" form="reserveParts">';
           }else{//予約があり未来の日付の場合
             $html[] = '<button type="submit" class="btn btn-danger cancel-modal-open p-0 w-75" name="delete_date" style="font-size:12px" value="'. $day->authReserveDate($day->everyDay())->first()->setting_reserve .'">'. $reservePart .'</button>';
-            $html[] = '<input type="hidden" name="getPart[]" value="" form="reserveParts">';
+            $html[] = '<input type="hidden" name="getPart[]" value="'. $day->authReserveDate($day->everyDay())->first()->setting_part .'" form="reserveParts">';
           }
         }else{//予約がない場合
           //かつ過去の日付の場合

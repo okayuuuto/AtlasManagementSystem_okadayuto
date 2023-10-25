@@ -19,7 +19,6 @@
 <div class="modal js-modal">
   <div class="modal__bg js-modal-close"></div>
   <div class="modal__content">
-    <form action="{{ route('post.edit') }}" method="post">
       <div class="w-100">
         <div class="w-50 m-auto">
         <p>予約日：<span class="modal-reserve-date"></span></p>
@@ -28,12 +27,10 @@
         </div>
         <div class="w-50 m-auto edit-modal-btn d-flex">
           <a class="js-modal-close btn btn-primary d-inline-block" href="">閉じる</a>
-          <input type="hidden" class="edit-modal-hidden" name="post_id" value="">
-          <input type="submit" class="btn btn-danger d-block" value="キャンセル">
+          <input type="submit" class="btn btn-danger d-block" value="キャンセル" form="deleteParts">
+          </form>
         </div>
       </div>
-      {{ csrf_field() }}
-    </form>
   </div>
 </div>
 @endsection
