@@ -5,6 +5,7 @@ $(function () {
     var reservePart = $(this).text();
     var settingReserve = $(this).attr('value');
     var settingPart = $(this).next().val();
+
     $('.modal-reserve-date').text(reserveDate);
     $('.modal-reserve-part').text(reservePart);
 
