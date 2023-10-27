@@ -53,4 +53,13 @@ class CalendarsController extends Controller
         }
         return redirect()->route('calendar.general.show', ['user_id' => Auth::id()]);
     }
+
+    public function reserveDetail($date, $part){
+        $users = ReserveSettings::where('setting_reserve', $date)
+        ->where('setting_part', $part)
+        ->with('users')
+        ->first();
+
+        return view('reserve.detail', compact('date', 'part', 'users'));
+    }
 }
