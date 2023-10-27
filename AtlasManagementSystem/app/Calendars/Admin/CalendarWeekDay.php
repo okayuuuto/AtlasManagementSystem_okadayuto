@@ -34,10 +34,10 @@ class CalendarWeekDay{
       $html[] = '<p class="day_part m-0 pt-1"><a href="' .route('calendar.admin.detail', ['date' => $ymd, 'part' => '1']) . '">1部</a>　' .count($one_part->users) . '</p>';
     }
     if($two_part){
-      $html[] = '<p class="day_part m-0 pt-1">2部　' .count($two_part->users) . '</p>';
+      $html[] = '<p class="day_part m-0 pt-1"><a href="' .route('calendar.admin.detail', ['date' => $ymd, 'part' => '2']) . '">2部</a>　' .count($two_part->users) . '</p>';
     }
     if($three_part){
-      $html[] = '<p class="day_part m-0 pt-1">3部　' .count($three_part->users) . '</p>';
+      $html[] = '<p class="day_part m-0 pt-1"><a href="' .route('calendar.admin.detail', ['date' => $ymd, 'part' => '3']) . '">3部</a>　' .count($three_part->users) . '</p>';
     }
     $html[] = '</div>';
 
