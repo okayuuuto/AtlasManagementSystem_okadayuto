@@ -156,6 +156,18 @@ li {
   justify-content: space-between;
 }
 
+.fa-comment {
+  color: #999;
+}
+
+.like_btn {
+  color: #fff;
+  text-shadow: -1px -1px 1px #999,
+    1px -1px 1px #999,
+    -1px 1px 1px #999,
+    1px 1px 1px #999;
+}
+
 .like_btn,
 .un_like_btn {
   cursor: pointer;
@@ -245,10 +257,10 @@ li {
 
 .category_btn {
   font-size: 12px;
-  border-radius: 5px;
-  padding: 0 5px;
+  border-radius: 8px;
+  padding: 5px;
   border: none;
-  background: #999;
+  background: #03AAD2;
   color: #FFF;
 }
 
