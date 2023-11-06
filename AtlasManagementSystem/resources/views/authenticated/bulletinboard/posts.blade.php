@@ -32,29 +32,34 @@
     </div>
     @endforeach
   </div>
-  <div class="other_area border w-25">
-    <div class="border m-4">
-      <div class=""><a href="{{ route('post.input') }}">投稿</a></div>
-      <div class="">
+  <div class="other_area w-25 mt-5">
+    <div class="m-4">
+      <div class="post_create_btn"><a href="{{ route('post.input') }} ">投稿</a></div>
+      <div class="keyword_form_container">
         <input type="text" placeholder="キーワードを検索" name="keyword" form="postSearchRequest">
         <input type="submit" value="検索" form="postSearchRequest">
       </div>
-      <input type="submit" name="like_posts" class="category_btn" value="いいねした投稿" form="postSearchRequest">
-      <input type="submit" name="my_posts" class="category_btn" value="自分の投稿" form="postSearchRequest">
-      <ul>
-        @foreach($categories as $category)
-        <li class="main_categories" category_id="{{ $category->id }}"><span>{{ $category->main_category }}<span></li>
-          @foreach($category->subCategories as $sub_category)
-          <li>
+      <div class="filter_btn">
+        <input type="submit" name="like_posts" class="category_btn mr-1" value="いいねした投稿" form="postSearchRequest" style="background-color:#FF82B2">
+        <input type="submit" name="my_posts" class="category_btn" value="自分の投稿" form="postSearchRequest" style="background-color:#FFCC66">
+      </div>
+      <div class="category_search_area">
+        <p>カテゴリー検索</p>
+        <dl>
+          @foreach($categories as $category)
+          <dt class="main_categories_name js_accordion_category" category_id="{{ $category->id }}"><span>{{ $category->main_category }}<span></dt>
+            @foreach($category->subCategories as $sub_category)
+            <dd class="categories_accordion">
             <form action="{{ route('post.show', ['sub_category_id' => $sub_category->id]) }}" method="get" id="postSearchRequest_{{ $sub_category->id }}">
               {{ csrf_field() }}
               <input type="hidden" name="sub_category_id" value="{{ $sub_category->id }}">
-              <input type="submit" name="sub_category_posts" class="category_btn" value="{{ $sub_category->sub_category }}">
+              <input type="submit" name="sub_category_posts" class="sub_categories_name" value="{{ $sub_category->sub_category }}">
             </form>
-          </li>
+            </dd>
+            @endforeach
           @endforeach
-        @endforeach
-      </ul>
+        </dl>
+      </div>
     </div>
   </div>
   <form action="{{ route('post.show') }}" method="get" id="postSearchRequest"></form>

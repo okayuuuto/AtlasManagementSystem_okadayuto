@@ -183,6 +183,101 @@ li {
   color: red;
 }
 
+.post_create_btn {
+  width: 100%;
+  border-radius: 8px;
+  padding: 5px;
+  border: none;
+  background: #03AAD2;
+  margin-bottom: 20px;
+}
+
+.post_create_btn a {
+  color: #fff;
+  display: flex;
+  justify-content: center;
+}
+
+.post_create_btn a:hover {
+  text-decoration: none;
+  color: #fff;
+}
+
+.keyword_form_container {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.keyword_form_container input[type="text"] {
+  flex: 1;
+  background-color: #ECF1F6;
+  border: #999 solid 1px;
+  border-radius: 5px 0 0 5px;
+}
+
+.keyword_form_container input[type="submit"] {
+  border: none;
+  background-color: #03AAD2;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+}
+
+.filter_btn {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.filter_btn input {
+  width: 100%;
+  cursor: pointer;
+}
+
+.main_categories_name {
+  cursor: pointer;
+  width: 100%;
+  border-bottom: solid 1px #999;
+  font-weight: normal;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.main_categories_name::after {
+  border-right: solid 2px #999;
+  border-top: solid 2px #999;
+  content: "";
+  display: block;
+  height: 8px;
+  position: absolute;
+  right: 25px;
+  top: 38%;
+  transform: rotate(135deg);
+  transition: transform .3s ease-in-out, top .3s ease-in-out;
+  width: 8px;
+}
+
+.main_categories_name.open::after {
+  top: 45%;
+  transform: rotate(-45deg);
+}
+
+.sub_categories_name {
+  cursor: pointer;
+  width: 80%;
+  border: none;
+  text-align: left;
+  background-color: #ECF1F6;
+  border-bottom: solid 1px #999;
+  font-weight: normal;
+  margin: 0 0 10px 20px;
+}
+
+.categories_accordion {
+  display: none;
+}
+
 /* 掲示板 詳細画面 */
 .contributor {
   font-size: 12px;
