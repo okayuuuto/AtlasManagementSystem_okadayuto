@@ -145,6 +145,7 @@ li {
 
 .detail_container {
   background: #FFF;
+  border-radius: 10px;
 }
 
 .post_area {
@@ -315,6 +316,7 @@ li {
 /* 掲示板 コメント */
 .comment_container {
   background: #FFF;
+  border-radius: 10px;
 }
 
 .comment_area p,
@@ -374,8 +376,24 @@ li {
   height: 80vh;
   overflow: scroll;
   padding: 10px;
-  background: #FFF;
+  background: #ECF1F6;
   border-radius: 5px;
+  justify-content: space-between;
+}
+
+.reserve_users_area::before {
+  content: "";
+  display: block;
+  width: 180px;
+  height: 180px;
+  order: 1;
+}
+
+.reserve_users_area::after {
+  content: "";
+  display: block;
+  width: 180px;
+  height: 180px;
 }
 
 .reserve_users_area span {
@@ -383,17 +401,52 @@ li {
 }
 
 .one_person {
-  width: 250px;
-  height: 250px;
+  width: 180px;
+  height: 180px;
+  padding: 5px 15px;
+  margin-bottom: 15px;
+  border-radius: 10px;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+  background-color: #FFF;
 }
 
-.search_conditions span {
+.add_search_area {
+  margin: 10px;
+  width: 80%;
+}
+
+.search_conditions {
   cursor: pointer;
+  width: 100%;
+  border-bottom: solid 1px #999;
+  font-weight: normal;
+  margin-bottom: 20px;
+  position: relative;
+  padding-bottom: 5px;
+}
+
+.search_conditions::after {
+  border-right: solid 2px #999;
+  border-top: solid 2px #999;
+  content: "";
+  display: block;
+  height: 8px;
+  position: absolute;
+  right: 25px;
+  top: 38%;
+  transform: rotate(135deg);
+  transition: transform .3s ease-in-out, top .3s ease-in-out;
+  width: 8px;
+}
+
+.search_conditions.open::after {
+  top: 45%;
+  transform: rotate(-45deg);
 }
 
 .search_conditions_inner {
   display: none;
-  background: #FFF;
+  background: #ECF1F6;
 }
 
 .subject_edit_btn {
@@ -404,4 +457,60 @@ li {
 
 .subject_inner {
   display: none;
+}
+
+.free_word {
+  background-color: #DDD;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  width: 80%;
+  margin-bottom: 10px;
+}
+
+.search_select_box select {
+  display: block;
+  margin-bottom: 10px;
+  background-color: #DDD;
+  border-radius: 5px;
+  border: none;
+  padding: 5px;
+  width: 30%;
+}
+
+.role_select_box select {
+  display: block;
+  margin-bottom: 10px;
+  background-color: #DDD;
+  border-radius: 5px;
+  border: none;
+  padding: 5px;
+  width: 50%;
+}
+
+.user_search_btn {
+  width: 80%;
+  border-radius: 8px;
+  padding: 5px;
+  border: none;
+  background: #03AAD2;
+  margin-bottom: 20px;
+  color: #FFF;
+  cursor: pointer;
+}
+
+.reset_area {
+  width: 80%;
+  margin-bottom: 20px;
+}
+
+.search_reset_btn {
+  display: flex;
+  width: fit-content;
+  padding: 5px;
+  border: none;
+  background: none;
+  color: #03AAD2;
+  cursor: pointer;
+  margin: auto;
 }

@@ -44,11 +44,11 @@
         @endif
         <p class="m-0">メインカテゴリー</p>
         <input type="text" class="w-100" name="main_category_name" form="mainCategoryRequest">
-        <input type="submit" value="追加" class="w-100 btn btn-primary p-0" form="mainCategoryRequest">
+        <input type="submit" value="追加" class="w-100 btn btn-primary p-0 mt-3" form="mainCategoryRequest">
       </div>
       <form action="{{ route('main.category.create') }}" method="post" id="mainCategoryRequest">{{ csrf_field() }}</form>
       <!-- サブカテゴリー追加 -->
-      <div class="">
+      <div class="mt-5">
         @if($errors->first('main_category_id'))
         <span class="error_message">{{ $errors->first('main_category_id') }}</span>
         @endif
@@ -62,8 +62,8 @@
         <option value="{{ $main_category->id }}">{{ $main_category->main_category }}</option>
         @endforeach
         </select>
-        <input type="text" class="w-100" name="sub_category_name" form="subCategoryRequest">
-        <input type="submit" value="追加" class="w-100 btn btn-primary p-0" form="subCategoryRequest">
+        <input type="text" class="w-100 mt-3" name="sub_category_name" form="subCategoryRequest">
+        <input type="submit" value="追加" class="w-100 btn btn-primary p-0 mt-3" form="subCategoryRequest">
       </div>
       <form action="{{ route('sub.category.create') }}" method="post" id="subCategoryRequest">{{ csrf_field() }}</form>
     </div>
