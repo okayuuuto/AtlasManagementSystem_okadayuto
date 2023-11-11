@@ -1,9 +1,8 @@
 @extends('layouts.sidebar')
 
 @section('content')
-<div class="board_area w-100 border m-auto d-flex">
+<div class="board_area w-100 m-auto d-flex">
   <div class="post_view w-75 mt-5">
-    <p class="w-75 m-auto">投稿一覧</p>
     @foreach($posts as $post)
     <div class="post_area border w-75 m-auto p-3">
       <p style="color: #999; font-weight: bold; font-size:15px;"><span>{{ $post->user->over_name }}</span><span class="ml-3">{{ $post->user->under_name }}</span>さん</p>
@@ -32,7 +31,7 @@
     </div>
     @endforeach
   </div>
-  <div class="other_area w-25 mt-5">
+  <div class="other_area w-25 mt-4">
     <div class="m-4">
       <div class="post_create_btn"><a href="{{ route('post.input') }} ">投稿</a></div>
       <div class="keyword_form_container">

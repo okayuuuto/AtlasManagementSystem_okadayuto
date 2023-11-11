@@ -27,7 +27,6 @@ li {
 /* サイドバー */
 .sidebar {
   width: 200px;
-  height: 100vh;
   background-color: #03AAD2;
   font-weight: bold;
   padding-top: 20px;
@@ -86,11 +85,15 @@ li {
 }
 
 .adjust-table {
-  width: 70% !important;
+  width: 90% !important;
 }
 
 .adjust-table td {
-  padding: 0 !important;
+  padding: 10px !important;
+}
+
+.adjust-table td p {
+  margin: 0;
 }
 
 .adjust-area p {
@@ -98,7 +101,7 @@ li {
 }
 
 .adjust-table-btn {
-  width: 70%;
+  width: 90%;
 }
 
 /* モーダル */
