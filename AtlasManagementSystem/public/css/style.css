@@ -105,6 +105,10 @@ li {
   width: 90%;
 }
 
+.reserve_detail_table tr:nth-child(2n+1) {
+  background-color: #D7EEFF;
+}
+
 /* モーダル */
 .modal {
   display: none;
